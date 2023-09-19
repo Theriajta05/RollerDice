@@ -53,7 +53,11 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
             painter = imageResource,
             contentDescription = result.toString()
         )
-        Button(onClick = { result = (1..6).random() }) {
+
+        Button(onClick = {
+            result = (1..6).random()
+            result2 = (1..6).random() // Generar un nuevo valor para el segundo dado
+        }) {
             Text(text = stringResource(id = R.string.roll))
         }
 
@@ -70,11 +74,9 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
             painter = imageResource2,
             contentDescription = result2.toString()
         )
-        Button(onClick = { result2 = (1..6).random() }) { // Nuevo botón para el segundo dado
-            Text(text = stringResource(id = R.string.roll))
-        }
     }
 }
+
 
 
 @Preview
